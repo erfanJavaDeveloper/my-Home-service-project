@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
+import java.util.List;
 
 //public class CustomerInDto implements ConverterToEntity<CustomerInDto,Customer> {
 @Setter

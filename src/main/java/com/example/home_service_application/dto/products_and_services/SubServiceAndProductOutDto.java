@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MainServiceAndProductOutDto {
+public class SubServiceAndProductOutDto {
     private Long id;
-
 }
