@@ -1,26 +1,23 @@
 package com.example.home_service_application.Service.products_and_Services;
 
-import com.example.home_service_application.Service.paying.ShoppingCartProducts_Service;
-import com.example.home_service_application.Service.users.WorkerService;
-import com.example.home_service_application.dto.products_and_services.MainServiceAndProductInDto;
 import com.example.home_service_application.dto.products_and_services.SubServiceAndProductInDto;
-import com.example.home_service_application.entity.products_and_services.MainServiceAndProduct;
+import com.example.home_service_application.dto.products_and_services.SubServiceAndProductInDto_Update;
 import com.example.home_service_application.entity.products_and_services.SubServiceAndProduct;
 import com.example.home_service_application.repository.products_and_services.SubServiceAndProduct_Repo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class SubServiceAndProduct_Service {
 
     private final SubServiceAndProduct_Repo subServiceAndProduct_repo;
-    private final WorkerService workerService;
-    private final MainServiceAndProduct_Service ms;
-    private final ShoppingCartProducts_Service sps;
+//    private final WorkerService workerService;
+//    private final MainServiceAndProduct_Service ms;
+//    private final ShoppingCartProducts_Service sps;
+//    private final SubServiceAndProductInDto subServiceAndProductInDto;
 
     @Transactional
     public SubServiceAndProduct saveWithDto(SubServiceAndProductInDto subServiceAndProductInDto) {
@@ -41,19 +38,13 @@ public class SubServiceAndProduct_Service {
         return subServiceAndProduct_repo.findById(id).get();
     }
 
+//    @Transactional
     public  SubServiceAndProduct convertInDtoToEntity(SubServiceAndProductInDto subServiceAndProductInDto){
-        SubServiceAndProduct subServiceAndProduct = new SubServiceAndProduct();
-
-        subServiceAndProduct.setName(subServiceAndProductInDto.getName());
-
-        for (Long workersNumber: subServiceAndProductInDto.getWorkersNumber() ) {
-            subServiceAndProduct.setWorker(List.of(workerService.findById(workersNumber)));
-        }
-
-        subServiceAndProduct.setMainServiceAndProduct(ms.findById(subServiceAndProductInDto.getMainServiceAndProduct()));
-
-        subServiceAndProduct.setShoppingCartProducts(sps.findById(subServiceAndProductInDto.getShoppingCartProducts()));
-        return subServiceAndProduct;
+     return subServiceAndProductInDto.convertInDtoToEntity(subServiceAndProductInDto);
     }
 
+    @Transactional
+    public void updateName(SubServiceAndProductInDto_Update subServiceAndProductInDto_update,Long id){
+        subServiceAndProduct_repo.updateName(subServiceAndProductInDto_update.getName(),id);
+    }
 }

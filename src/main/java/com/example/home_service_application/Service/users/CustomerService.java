@@ -29,7 +29,7 @@ public class CustomerService {
 
     @Transactional
     public void updateAll(CustomerInDto customerInDto , Long id) {
-        customerRepo.updateALLInformation(customerInDto.getFN(), customerInDto.getLN(),
+        customerRepo.updateALLInformation(customerInDto.getFirstName(), customerInDto.getLastName(),
                 customerInDto.getUsername(), customerInDto.getPassword(), customerInDto.getAddress(),
                 customerInDto.getEmail(), id);
     }

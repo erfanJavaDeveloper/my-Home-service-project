@@ -10,8 +10,8 @@ import javax.validation.constraints.Email;
 //public class WorkerInDto implements ConverterToEntity<WorkerInDto, Worker> {
 public class WorkerInDto {
     private Long id;
-    private String fN;
-    private String lN;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
     @Email
@@ -22,8 +22,8 @@ public class WorkerInDto {
         Worker worker = new Worker();
         worker.setAddress(workerInDto.getAddress());
         worker.setEmail(workerInDto.getEmail());
-        worker.setFN(workerInDto.getFN());
-        worker.setLN(workerInDto.getLN());
+        worker.setFirstName(workerInDto.getFirstName());
+        worker.setLastName(workerInDto.getLastName());
         worker.setPassword(workerInDto.getPassword());
         worker.setUsername(workerInDto.getUsername());
         return worker;

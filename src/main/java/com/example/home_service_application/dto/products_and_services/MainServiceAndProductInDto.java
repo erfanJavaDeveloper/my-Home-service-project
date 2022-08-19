@@ -9,11 +9,24 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
+@RequiredArgsConstructor
 public class MainServiceAndProductInDto {
     private final SubServiceAndProduct_Service subServiceAndProduct_service;
     private String name;
     private List<Long> subServiceProduct ;
 
 
+    public  MainServiceAndProduct convertInDtoToEntity(MainServiceAndProductInDto mainServiceAndProductInDto) {
+        MainServiceAndProduct mainServiceAndProduct = new MainServiceAndProduct();
+
+        mainServiceAndProduct.setName(mainServiceAndProductInDto.getName());
+
+        mainServiceAndProduct.setName(mainServiceAndProductInDto.getName());
+        for (Long subServiceAndProductsID : mainServiceAndProductInDto.getSubServiceProduct()) {
+            mainServiceAndProduct.setSubServiceProduct(List.of(subServiceAndProduct_service.findById(subServiceAndProductsID)));
+        }
+
+        return mainServiceAndProduct;
+    }
 }

@@ -2,6 +2,7 @@ package com.example.home_service_application.controller.products_and_services;
 
 import com.example.home_service_application.Service.products_and_Services.SubServiceAndProduct_Service;
 import com.example.home_service_application.dto.products_and_services.SubServiceAndProductInDto;
+import com.example.home_service_application.dto.products_and_services.SubServiceAndProductInDto_Update;
 import com.example.home_service_application.entity.products_and_services.SubServiceAndProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,5 +36,11 @@ public class SubServiceAndProduct_Controller {
         SubServiceAndProduct subServiceAndProduct = subServiceAndProduct_service.findById(id);
         return ResponseEntity.status(HttpStatus.FOUND)
                 .body(subServiceAndProduct);
+    }
+    @PutMapping("/updateName/{id}")
+    public ResponseEntity<String> updateName(@PathVariable Long id , @RequestBody SubServiceAndProductInDto_Update subServiceAndProductInDto_update){
+        subServiceAndProduct_service.updateName(subServiceAndProductInDto_update,id);
+        return  ResponseEntity.status(HttpStatus.UPGRADE_REQUIRED)
+                .body("updated");
     }
 }

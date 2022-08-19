@@ -32,7 +32,7 @@ public class AdminService {
 
     @Transactional
     public void updateAll(AdminInDto adminInDto ,Long id) {
-        adminRepo.updateALLInformation(adminInDto.getFN(), adminInDto.getLN(),
+        adminRepo.updateALLInformation(adminInDto.getFirstName(), adminInDto.getLastName(),
                 adminInDto.getUsername(), adminInDto.getPassword(), adminInDto.getAddress(),
                 adminInDto.getEmail(), id);
     }

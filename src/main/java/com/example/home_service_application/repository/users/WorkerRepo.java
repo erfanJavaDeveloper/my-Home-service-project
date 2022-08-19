@@ -19,7 +19,7 @@ public interface WorkerRepo extends JpaRepository<Worker,Long> {
 
 
     @Modifying
-    @Query("update Worker c set c.fN=:fN , c.lN=:lN , c.username =:username ,c.password=:password ," +
+    @Query("update Worker c set c.firstName=:fN , c.lastName=:lN , c.username =:username ,c.password=:password ," +
             "c.address=:address ,c.email=:email  where c.id=:id")
     void updateALLInformation( String fN ,String lN , String username , String password , String address , String email , Long id);
 }

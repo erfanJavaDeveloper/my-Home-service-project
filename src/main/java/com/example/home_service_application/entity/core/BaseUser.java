@@ -17,8 +17,8 @@ public class BaseUser{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fN;
-    private String lN;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
     private String email;

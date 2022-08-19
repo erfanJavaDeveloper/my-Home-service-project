@@ -9,11 +9,13 @@ import javax.validation.constraints.Pattern;
 
 @Getter
 @Setter
+//@AllArgsConstructor
+//@NoArgsConstructor
 //public class AdminInDto implements ConverterToEntity<AdminInDto,Admin> {
 public class AdminInDto {
     private Long id;
-    private String fN;
-    private String lN;
+    private String firstName;
+    private String lastName;
     private String username;
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{5,7}$")
     private String password;
@@ -28,8 +30,8 @@ public class AdminInDto {
         admin.setEmail(adminInDto.getEmail());
         admin.setPassword(adminInDto.getPassword());
         admin.setUsername(adminInDto.getUsername());
-        admin.setFN(adminInDto.getFN());
-        admin.setLN(adminInDto.getLN());
+        admin.setFirstName(adminInDto.getFirstName());
+        admin.setLastName(adminInDto.getLastName());
         return admin;
     }
 

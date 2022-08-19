@@ -22,11 +22,13 @@ import java.util.List;
 @SuperBuilder
 public class SubServiceAndProduct extends BaseService {
 
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private MainServiceAndProduct mainServiceAndProduct;
     @ManyToMany(mappedBy = "subServiceAndProduct")
     private List<Worker> worker=new ArrayList<>();
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private ShoppingCartProducts shoppingCartProducts;
 
     private BigDecimal price;

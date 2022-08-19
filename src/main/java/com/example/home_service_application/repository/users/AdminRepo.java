@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 public interface AdminRepo extends JpaRepository<Admin,Long> {
 
     @Modifying
-    @Query("update Admin a set a.fN=:fN , a.lN=:lN , a.username =:username ,a.password=:password ," +
+    @Query("update Admin a set a.firstName=:firstName , a.lastName=:lastName , a.username =:username ,a.password=:password ," +
             "a.address=:address ,a.email=:email  where a.id=:id")
-    void updateALLInformation(String fN , String lN , String username , String password , String address , String email , Long id);
+    void updateALLInformation(String firstName , String lastName , String username , String password , String address , String email , Long id);
+
+
 }

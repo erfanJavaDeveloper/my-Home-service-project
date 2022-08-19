@@ -30,7 +30,7 @@ public class WorkerService {
 
     @Transactional
     public void updateAll(WorkerInDto workerInDto,Long id) {
-        workerRepo.updateALLInformation(workerInDto.getFN(), workerInDto.getLN(),
+        workerRepo.updateALLInformation(workerInDto.getFirstName(), workerInDto.getLastName(),
                 workerInDto.getUsername(), workerInDto.getPassword(), workerInDto.getAddress(),
                 workerInDto.getEmail(), id);
     }

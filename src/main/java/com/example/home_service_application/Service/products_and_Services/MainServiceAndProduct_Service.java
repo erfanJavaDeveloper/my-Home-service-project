@@ -4,6 +4,7 @@ import com.example.home_service_application.dto.products_and_services.MainServic
 import com.example.home_service_application.entity.products_and_services.MainServiceAndProduct;
 import com.example.home_service_application.repository.products_and_services.MainServiceAndProduct_Repo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,8 @@ import java.util.List;
 public class MainServiceAndProduct_Service {
 
     private final MainServiceAndProduct_Repo mainServiceAndProduct_repo;
-    private final SubServiceAndProduct_Service subServiceAndProduct_service;
+//    @Lazy
+//    private final SubServiceAndProduct_Service subServiceAndProduct_service;
 
     @Transactional
     public MainServiceAndProduct saveWithDto(MainServiceAndProductInDto mainServiceAndProductInDto) {
@@ -35,18 +37,9 @@ public class MainServiceAndProduct_Service {
     }
 
 
-
+    @Transactional
     public  MainServiceAndProduct convertInDtoToEntity(MainServiceAndProductInDto mainServiceAndProductInDto) {
-        MainServiceAndProduct mainServiceAndProduct = new MainServiceAndProduct();
-
-        mainServiceAndProduct.setName(mainServiceAndProductInDto.getName());
-
-        mainServiceAndProduct.setName(mainServiceAndProductInDto.getName());
-        for (Long subServiceAndProductsID : mainServiceAndProductInDto.getSubServiceProduct()) {
-            mainServiceAndProduct.setSubServiceProduct(List.of(subServiceAndProduct_service.findById(subServiceAndProductsID)));
-        }
-
-        return mainServiceAndProduct;
+      return mainServiceAndProductInDto.convertInDtoToEntity(mainServiceAndProductInDto);
     }
 
 
