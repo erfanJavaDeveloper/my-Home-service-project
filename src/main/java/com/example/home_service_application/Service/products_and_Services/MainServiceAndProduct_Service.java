@@ -1,6 +1,7 @@
 package com.example.home_service_application.Service.products_and_Services;
 
 import com.example.home_service_application.dto.products_and_services.MainServiceAndProductInDto;
+import com.example.home_service_application.dto.products_and_services.MainServiceAndProductInDto_Update;
 import com.example.home_service_application.entity.products_and_services.MainServiceAndProduct;
 import com.example.home_service_application.repository.products_and_services.MainServiceAndProduct_Repo;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,11 @@ public class MainServiceAndProduct_Service {
     @Transactional
     public MainServiceAndProduct findById(Long id) {
         return mainServiceAndProduct_repo.findById(id).get();
+    }
+
+    @Transactional
+    public void updateName(MainServiceAndProductInDto_Update mainServiceAndProductInDto_update ,Long id){
+        mainServiceAndProduct_repo.updateName(mainServiceAndProductInDto_update.getName(),id);
     }
 
 

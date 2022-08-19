@@ -21,9 +21,9 @@ public class SubServiceAndProductInDto {
     private final MainServiceAndProduct_Service ms;
     private final ShoppingCartProducts_Service sps;
 
-    private List<Long> workersNumber = new ArrayList<>();
-    private Long mainServiceAndProduct;
-    private Long shoppingCartProducts;
+//    private List<Long> workersNumber = new ArrayList<>();
+//    private Long mainServiceAndProduct;
+//    private Long shoppingCartProducts;
     private String name;
     private BigDecimal price;
     private String description;
@@ -35,13 +35,15 @@ public class SubServiceAndProductInDto {
 
         subServiceAndProduct.setName(subServiceAndProductInDto.getName());
 
-        for (Long workersNumber : subServiceAndProductInDto.getWorkersNumber()) {
-            subServiceAndProduct.setWorker(List.of(workerService.findById(workersNumber)));
-        }
-
-        subServiceAndProduct.setMainServiceAndProduct(ms.findById(subServiceAndProductInDto.getMainServiceAndProduct()));
-
-        subServiceAndProduct.setShoppingCartProducts(sps.findById(subServiceAndProductInDto.getShoppingCartProducts()));
+        subServiceAndProduct.setDescription(subServiceAndProductInDto.getDescription());
+        subServiceAndProduct.setPrice(subServiceAndProductInDto.getPrice());
+//        for (Long workersNumber : subServiceAndProductInDto.getWorkersNumber()) {
+//            subServiceAndProduct.setWorker(List.of(workerService.findById(workersNumber)));
+//        }
+//
+//        subServiceAndProduct.setMainServiceAndProduct(ms.findById(subServiceAndProductInDto.getMainServiceAndProduct()));
+//
+//        subServiceAndProduct.setShoppingCartProducts(sps.findById(subServiceAndProductInDto.getShoppingCartProducts()));
         return subServiceAndProduct;
     }
 }
