@@ -3,10 +3,7 @@ package com.example.home_service_application.entity.products_and_services;
 import com.example.home_service_application.entity.core.BaseService;
 import com.example.home_service_application.entity.paying.ShoppingCartProducts;
 import com.example.home_service_application.entity.users.Worker;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.CascadeType;
